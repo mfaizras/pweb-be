@@ -12,6 +12,6 @@ Route::get('/', function () {
 
 Route::get('/destination',[DestinationController::class,'index']);
 Route::get('/destination/{destination}',[DestinationController::class,'show']);
-route::post('/destination/add',[DestinationController::class,'store']);
+Route::post('/destination/add',[DestinationController::class,'store']);
 
 require __DIR__.'/auth.php';

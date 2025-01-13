@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\DestinationResource\Pages;
 use App\Filament\Resources\DestinationResource\RelationManagers;
+use Filament\Forms\Components\FileUpload;
 
 class DestinationResource extends Resource
 {
@@ -42,6 +43,8 @@ class DestinationResource extends Resource
                 ])->default('day'),
                 TextInput::make('destination'),
                 TextInput::make('price')->required()->numeric(),
+                FileUpload::make('images')->columnSpan('full')->disk('public')
+                ->directory('images'),
                 RichEditor::make('description')->columnSpan('full'),
                 Checkbox::make('is_available')->default(true)
             ]);

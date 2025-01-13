@@ -16,7 +16,7 @@ class DestinationController extends Controller
      */
     public function index()
     {
-        return new ResponseResource(200,'success',new DestinationResource(Destination::where('is_available',true)->get()));
+        return (new ResponseResource(200,'success',new DestinationResource(Destination::where('is_available',true)->get())))->response();
     }
 
     /**
