@@ -19,6 +19,10 @@ class ResponseResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
+        $response = [];
+        $response['status'] = $this->status;
+        $response['message'] = $this->message;
+        $response['data'] = $this->data;
         return [
             'status' => $this->status,
             'message' => $this->message,

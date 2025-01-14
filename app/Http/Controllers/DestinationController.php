@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Destination;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\DestinationCollection;
 use App\Http\Resources\ResponseResource;
 use App\Http\Resources\DestinationResource;
 use Exception;
@@ -16,7 +17,11 @@ class DestinationController extends Controller
      */
     public function index()
     {
-        return (new ResponseResource(200,'success',new DestinationResource(Destination::where('is_available',true)->get())))->response();
+        return response()->json([
+            'code' => 200,
+            'status' => 'success',
+            'data' => Destination::where('is_available',true)->paginate(8)
+        ]);
     }
 
     /**
