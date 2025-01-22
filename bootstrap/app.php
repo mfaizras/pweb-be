@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Middleware\ForceJsonMiddleware;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Application;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 
@@ -13,7 +16,9 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->api(prepend: [
-            \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+            // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+            // ForceJsonMiddleware::class
+
         ]);
 
         $middleware->alias([
@@ -23,5 +28,18 @@ return Application::configure(basePath: dirname(__DIR__))
         //
     })
     ->withExceptions(function (Exceptions $exceptions) {
-        //
+         //Custom Rendering
+         $exceptions->render(function (AuthenticationException $e, Request $request) {
+            // Check if the request is for an API route
+            if ($request->is('api/*') || $request->expectsJson()) {
+                return response()->json([
+                    'code' => 401,
+                    'status' => 'unauthorized',
+                    'message' => 'Not Authorized',
+                ], 401);
+            }
+
+            // For non-API routes, let Laravel handle the exception normally
+            return false;
+        });
     })->create();
