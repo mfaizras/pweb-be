@@ -82,7 +82,7 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        if(auth()->user()->id !== $order->user_id){
+        if(auth()->user()->id != $order->user_id){
             return response()->json([
                 'code' => 403,
                 'status' => 'error',
