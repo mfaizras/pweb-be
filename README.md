@@ -1,6 +1,6 @@
 # Travelly
 
-Dalam era digital, kebutuhan akan layanan online terus meningkat, termasuk di industri perjalanan. Banyak orang menghadapi kesulitan mencari informasi wisata, memesan tiket, atau memilih penginapan. Travelly hadir sebagai solusi dengan menyediakan platform yang mempermudah perencanaan dan pemesanan perjalanan.
+Travelly merupakan platform berbasis web yang dirancang untuk memudahkan pengguna dalam merencanakan perjalanan wisata. Website ini menawarkan berbagai fitur seperti pencarian destinasi, rekomendasi paket perjalanan, pemesanan tiket, serta artikel panduan wisata. Hasil dari pengembangan proyek ini berhasil memberikan antarmuka yang intuitif, responsif, dan mudah digunakan oleh pengguna. Integrasi dengan API pemesanan serta fitur personalisasi rekomendasi juga meningkatkan pengalaman pengguna secara keseluruhan. 
 
 # Author
 Program ini ditujukan untuk memenuhi Tugas Pemrograman Web 3IA21 Universitas Gunadarma, Kami dari kelompok 2 yang Beranggotakan :
