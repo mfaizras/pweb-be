@@ -54,20 +54,26 @@ Jalankan perintah berikut untuk membuat tabel yang diperlukan:
 php artisan migrate
 ```
 
-## 6. Menjalankan Server Laravel
+## 6. Storage Link
+Jalankan program berikut untuk membuat Link pada sotrage anda
+```sh
+php artisan storage:link
+```
+
+## 7. Menjalankan Server Laravel
 Jalankan server pengembangan Laravel dengan perintah berikut:
 ```sh
 php artisan serve
 ```
 Server akan berjalan pada `http://127.0.0.1:8000/` secara default.
 
-## 7. Ubah Konfigurais Frontend
+## 8. Ubah Konfigurasi Frontend
 Edit file `.env` pada FRONTEND_URL dan sesuaikan dengan alamat frontend anda:
 ```env
 FRONTEND_URL='*'
 ```
 
-## 8. Troubleshooting
+## 9. Troubleshooting
 Jika terjadi error:
 - Pastikan semua dependensi telah diinstal dengan benar.
 - Periksa koneksi database dan pastikan kredensialnya benar.
